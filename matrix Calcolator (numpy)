@@ -1,0 +1,84 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sun Jun 30 11:37:49 2024
+
+@author: home
+"""
+
+import numpy as np
+ope=input("Please enter the Operation needed ('+','-','.','*','T','I(nverse)','D(et)'):\n")
+if not(ope=="T" or ope=="I" or ope=="D"):
+    mat1Dim=input("Enter the matrix dimensions in the form m:n : ")
+    mat2Dim=input("Enter the matrix dimensions in the form m:n : " )
+    mat1rows=int(mat1Dim[0])
+    mat2rows=int(mat2Dim[0])
+    cnt=0
+    build=list()
+    ###########Getting input###############
+    while cnt<mat1rows:
+        
+    
+        qais=list(map(int,input("Please Enter the rows in matrix 1 :").split()))
+        if not(len(qais)==int(mat1Dim[-1])):
+            print("long row then specified.")
+            continue
+        build.append(qais)
+        cnt-=-1
+        
+    mat1=np.array(build)    
+    
+    
+    build=list()
+    cnt=0
+    while cnt<mat2rows:
+    
+        qais=list(map(int,input("Please Enter the rows in matrix 2 :").split()))
+        if not(len(qais)==int(mat2Dim[-1])):
+            print("long row then specified.")
+            continue
+        build.append(qais)
+        cnt-=-1
+        
+    mat2=np.array(build)    
+    print(mat1)
+    print(mat2)
+    
+    if(ope=="+"):
+        print(np.add(mat1,mat2))
+    elif(ope=="-"):
+        print(np.subtract(mat1,mat2))
+    elif(ope=="."):
+        print(np.dot(mat1,mat2))
+    elif(ope=="*"):
+        print(np.multiply(mat1,mat2))
+    else:
+        print("wrong opperation")
+else:
+    mat1Dim=input("Enter the matrix dimensions in the form m:n : ")
+    mat1rows=int(mat1Dim[0])
+    cnt=0
+    build=list()
+    ###########Getting input###############
+    while cnt<mat1rows:
+        
+    
+        qais=list(map(int,input("Please Enter the rows in matrix 1 :").split()))
+        if not(len(qais)==int(mat1Dim[-1])):
+            print("long row then specified.")
+            continue
+        build.append(qais)
+        cnt-=-1
+        
+    mat1=np.array(build)    
+    
+    
+    build=list()
+    cnt=0
+    if(ope=='T'):
+        print(np.transpose(mat1))
+    elif(ope=='I'):
+        print(np.linalg.inv(mat1))
+    elif(ope=='D'):
+        print(np.linalg.det(mat1))
+    else:
+        print("Wrong operation")
